@@ -184,6 +184,7 @@ const (
 	DirectDebitingFailureHandling              = 428
 	DisconnectCause                            = 273
 	DomainName                                 = 1200
+	DownlinkRateLimit                          = 4312
 	DynamicAddressFlag                         = 2051
 	DynamicAddressFlagExtension                = 2068
 	EPSSubscribedQoSProfile                    = 1431
