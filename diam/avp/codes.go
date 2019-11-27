@@ -150,10 +150,12 @@ const (
 	ClassIdentifier                            = 1214
 	ClientAddress                              = 2018
 	ClientIdentity                             = 1480
+	CMRFlags                                   = 4317
 	CompleteDataListIncludedIndicator          = 1468
 	ConfidentialityKey                         = 625
 	ConfigurationToken                         = 78
 	ConnectInfo                                = 77
+	ConnectionAction                           = 4314
 	ContentClass                               = 1220
 	ContentDisposition                         = 828
 	ContentID                                  = 2116
@@ -207,6 +209,7 @@ const (
 	ExtPDPAddress                              = 1621
 	ExtPDPType                                 = 1620
 	ExternalClient                             = 1479
+	ExtendedPCO                                = 4313
 	FailedAVP                                  = 279
 	FeatureList                                = 630
 	FeatureListID                              = 629
@@ -584,6 +587,7 @@ const (
 	ServiceTypeIdentity                        = 1484
 	ServingNode                                = 2401
 	ServingNodeType                            = 2047
+	ServingPLMNRateControl                     = 4310
 	SessionBinding                             = 270
 	SessionDirection                           = 2707
 	SessionID                                  = 263
