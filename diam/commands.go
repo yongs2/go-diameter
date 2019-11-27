@@ -25,6 +25,7 @@ const (
 	ServerAssignment          = 301
 	SessionTermination        = 275
 	UpdateLocation            = 316
+	ConnectionManagement      = 8388732
 )
 
 // Short Command Names
@@ -43,6 +44,8 @@ const (
 	CER = "CER"
 	CLA = "CLA"
 	CLR = "CLR"
+	CMA = "CMA"
+	CMR = "CMR"
 	DPA = "DPA"
 	DPR = "DPR"
 	DWA = "DWA"

@@ -95,6 +95,7 @@ const (
 	BaseTimeInterval                           = 1265
 	BasicServiceCode                           = 3411
 	BearerCapability                           = 3412
+	BearerIdentifier                           = 1020
 	BearerService                              = 854
 	BearerUsage                                = 1000
 	CCCorrelationID                            = 411
@@ -697,6 +698,7 @@ const (
 	UserEquipmentInfoType                      = 459
 	UserEquipmentInfoValue                     = 460
 	UserID                                     = 1444
+	UserIdentifier                             = 3102
 	UserLocationInfoTime                       = 2812
 	UserName                                   = 1
 	UserParticipatingType                      = 1279

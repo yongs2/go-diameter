@@ -24,6 +24,7 @@ func init() {
 		{"TGPP", tgpprorfXML},
 		{"TGPP_S6a", tgpps6aXML},
 		{"TGPP_Swx", tgppswxXML},
+		{"TGPP_T6a", tgppt6aXML},
 	}
 	var err error
 	Default, err = NewParser()
@@ -6437,5 +6438,90 @@ var tgppswxXML = `<?xml version="1.0" encoding="UTF-8"?>
             </data>
         </avp>
 
+    </application>
+</diameter>`
+
+var tgppt6aXML = `<?xml version="1.0" encoding="UTF-8"?>
+<diameter>
+    <!--
+        3GPP TS 29.128
+        See: https://www.etsi.org/deliver/etsi_ts/129100_129199/129128/15.06.00_60/ts_129128v150600p.pdf
+    -->
+    <application id="16777346" type="auth" name="TGPP T6a_T6b">
+        <vendor id="10415" name="TGPP"/>
+        <command code="8388732" short="CM" name="Connection-Management">
+            <request>
+                <rule avp="Session-Id" required="true" max="1" />
+                <rule avp="User-Identifier" required="true" max="1" />
+                <rule avp="Bearer-Identifier" required="true" max="1" />
+                <rule avp="DRMP" required="false" max="1" />
+                <rule avp="Auth-Session-State" required="true" max="1" />
+                <rule avp="Origin-Host" required="true" max="1" />
+                <rule avp="Origin-Realm" required="true" max="1" />
+                <rule avp="Destination-Host" required="false" max="1" />
+                <rule avp="Destination-Realm" required="true" max="1" />
+                <rule avp="OC-Supported-Features" required="false" max="1" />
+                <rule avp="CMR-Flags" required="false" max="1" />
+                <rule avp="Maximum-UE-Availability-Time" required="false" max="1" />
+                <rule avp="Supported-Features" required="false" />
+                <rule avp="Connection-Action" required="false" max="1" />
+                <rule avp="Service-Selection" required="false" max="1" />
+                <rule avp="Serving-PLMN-Rate-Control" required="false" max="1" />
+                <rule avp="Extended-PCO" required="false" max="1" />
+                <rule avp="3GPP-Charging-Characteristics" required="false" max="1" />
+                <rule avp="RAT-Type" required="false" max="1" />
+                <rule avp="Terminal-Information" required="false" max="1" />
+                <rule avp="Visited-PLMN-Id" required="false" max="1" />
+                <rule avp="Proxy-Info" required="false" />
+                <rule avp="Route-Record" required="false" />
+            </request>
+            <!--
+                < Connection-Management-Answer > ::= < Diameter Header: 8388732, PXY, 16777346 >
+                < Session-Id >
+                [ DRMP ]
+                [ Result-Code ]
+                [ Experimental-Result ]
+                { Auth-Session-State }
+                { Origin-Host }
+                { Origin-Realm }
+                [ OC-Supported-Features ]
+                [ OC-OLR ]
+                *[ Load ]
+                *[ Supported-Features ]
+                [ PDN-Connection-Charging-Id ]
+                [ Extended-PCO ]
+                [ Failed-AVP ]
+                *[ Proxy-Info ]
+                *[ Route-Record ]
+                *[AVP] 
+            -->
+            <answer>
+                <rule avp="Session-Id" required="true" max="1" />
+                <rule avp="DRMP" required="false" max="1" />
+                <rule avp="Result-Code" required="false" max="1" />
+                <rule avp="Experimental-Result" required="false" max="1" />
+                <rule avp="Auth-Session-State" required="true" max="1" />
+                <rule avp="Origin-Host" required="true" max="1" />
+                <rule avp="Origin-Realm" required="true" max="1" />
+                <rule avp="OC-Supported-Features" required="false" max="1" />
+                <rule avp="OC-OLR" required="false" max="1" />
+                <!-- rule avp="Load" required="false" /-->
+                <rule avp="Supported-Features" required="false" />
+                <rule avp="PDN-Connection-Charging-Id" required="false" max="1" />
+                <rule avp="Extended-PCO" required="false" max="1" />
+                <rule avp="Failed-AVP" required="false" max="1" />
+                <rule avp="Proxy-Info" required="false" />
+                <rule avp="Route-Record" required="false" />
+            </answer>
+        </command>
+
+        <avp name="User-Identifier" code="3102" vendor-id="10415" must="M,V" may-encrypt="N">
+            <data type="Grouped">
+                <rule avp="User-Name" required="false" max="1"/>
+                <rule avp="MSISDN" required="false" max="1"/>
+                <rule avp="External-Identifier" required="false" max="1"/>
+                <rule avp="LMSI" required="false" max="1"/>
+            </data>
+        </avp>
     </application>
 </diameter>`
